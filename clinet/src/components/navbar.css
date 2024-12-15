@@ -1,0 +1,56 @@
+.nav-fix{
+  position: fixed;
+  top: 0;
+  margin-top: 0;
+  width:100%;
+  background: rgb(19, 56, 130);
+  z-index: 99;
+}
+
+.nav-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  
+}
+
+
+.nav-container a {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.nav-container nav {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers nav items horizontally */
+}
+
+.nav-container nav ul {
+  display: flex;
+}
+
+.nav-container nav ul li {
+  margin-left: 20px;
+  list-style: none;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-container nav button {
+  padding: 5px 15px;
+  color: white;
+  cursor: pointer;
+  margin-left: 20px;
+  border-radius: 20px;
+  background-color: #1782fc;
+  border: none;
+  outline: none;
+}
