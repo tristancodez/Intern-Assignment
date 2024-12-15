@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import DatePicker from 'react-datepicker';
+
 import "react-datepicker/dist/react-datepicker.css";
 import './booking.css';
 
@@ -14,8 +14,8 @@ const BookingPage = () => {
     contact: '',
     travelers: 1,
     special_req: '',
-    start_date: null, 
-    end_date: null,
+    start_date: '', // Initially empty string
+    end_date: '',   // Initially empty string
   });
   const [isBooking, setIsBooking] = useState(false);
   const [bookingError, setBookingError] = useState('');
@@ -30,17 +30,9 @@ const BookingPage = () => {
     });
   };
 
-  const handleDateChange = (date, name) => {
-    setUserDetails({
-      ...userDetails,
-      [name]: date
-    });
-  };
-
   const handleBookingSubmit = async (event) => {
     event.preventDefault();
     setBookingError('');
-
 
     console.log(userDetails);
 
@@ -133,22 +125,22 @@ const BookingPage = () => {
             </div>
             <div className='form-item'>
               <label>Start Date:</label>
-              <DatePicker 
-                selected={userDetails.start_date} 
-                onChange={(date) => handleDateChange(date, 'start_date')} 
-                dateFormat="yyyy-MM-dd" 
-                placeholderText="Pick Start Date" 
-                required
+              <input 
+                type='date'
+                name='start_date'
+                value={userDetails.start_date}
+                onChange={handleInputChange}  // Handles date change correctly
+                required 
               />
             </div>
             <div className='form-item'>
               <label>End Date:</label>
-              <DatePicker 
-                selected={userDetails.end_date} 
-                onChange={(date) => handleDateChange(date, 'end_date')} 
-                dateFormat="yyyy-MM-dd" 
-                placeholderText="Pick End Date" 
-                required
+              <input 
+                type='date' 
+                name='end_date'
+                value={userDetails.end_date}
+                onChange={handleInputChange}  // Handles date change correctly
+                required 
               />
             </div>
             {bookingError && <div className="error">{bookingError}</div>}

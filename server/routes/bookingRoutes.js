@@ -1,5 +1,6 @@
 const express = require('express');
 const Booking = require('../models/Booking');
+const { mongo } = require('mongoose');
 
 const booking_router = express.Router();
 
@@ -25,6 +26,17 @@ booking_router.post('/add-booking', async (req, res) => {
     res.status(500).json({ message: 'Error adding tour', error: err.message });
   }
 });
+
+booking_router.get('/all-bookings',async(req,res)=>{
+
+    try{
+        const booking = await Booking.find();
+        res.status(200).json(booking);
+    }
+    catch(err){
+        res.status(500).json({message:'Error fetching bookings',details:err})
+    }
+})
 
 
 module.exports = booking_router;

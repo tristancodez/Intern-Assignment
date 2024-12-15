@@ -1,125 +1,187 @@
-
-
-.form-container form .search-item button{
-    background-color: #1782fc;
-    border-radius: 10px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    color: white;
-    outline: none;
-    border: none;
-    padding: 23.5px 20px;
-    cursor: pointer;
-    font-weight: bold;
+/* Container styling */
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
   }
-
-  .form-container form .search-item #clear-btn{
-    background-color: red;
-    margin-left: 20px;
-    border-radius: 10px;
-    color: white;
-    outline: none;
-    border: none;
-    padding: 23.5px 20px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-
-
-  .form-container form .search-item-location input{
-    border: none;
-    padding: 20px 15px;
-    border-radius: 10px;
-    outline: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    font-size: large;
-    width: 450px;
-
-  }
-
-.form-container form{
-    
-    margin-top: 0px;
+  
+  /* Search bar styling */
+  .form-container {
     display: flex;
-    justify-content: center;
-    
-}
-
-
-
-h2{
-    color: white;
-    text-align: center;
-    padding-top: 40px;
-    padding-bottom: 20px;
-}
-.content-container .tour-list{
-    display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    
-}
-
-.content-container .tour-list .tour-item{
-    align-items: center;
-    background-color:white;
+    margin-bottom: 40px;
+  }
+  
+  .search-bar {
     display: flex;
-    flex-wrap: wrap;
-    width: 400px;
-    height: 400px;
-    flex-direction: column; 
-    margin: 10px 10px;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    background-color: #f8f8f8;
+    border-radius: 30px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-item-location input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
     border-radius: 20px;
-}
-
-.content-container .tour-list .tour-item img{
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
-.content-container .tour-list .tour-item h3{
-    padding-top: 15px;
-    justify-content: center;
-}
-
-.content-container .tour-list .tour-item p{
-    
-    padding-top: 10px;
-    font-size: 13px;
-    padding-bottom: 10px;
-    width: 300px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.content-container .tour-list .tour-item button{
-    
-
-    padding-top: 10px;
-    font-size: 13px;
-    border-radius: 20px;
-    border: none;
-    background-color: black;
+    margin-right: 10px;
+  }
+  
+  .search-item-location input:focus {
+    outline: none;
+    border: 2px solid #007BFF;
+  }
+  
+  .search-item button {
+    background-color: #007BFF;
     color: white;
-    padding-inline: 15px;
-    padding-bottom: 10px;
-    align-items: center;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
     cursor: pointer;
-}
-
-.content-container .tour-list .tour-item button:hover{
-    background-color: grey;
-}
-
-
-.content-container .tour-list .tour-item label{
-    
-    padding-top: 5px;
-    font-size: 15px;
-    align-items: center;
-    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-item button:hover {
+    background-color: #0056b3;
+  }
+  
+  .search-item #clear-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .search-item #clear-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Title styling */
+  h2 {
     text-align: center;
-}
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 40px;
+  }
+  
+  /* Tour list styling */
+  .tour-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  .tour-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+    
+  }
+  
+  .tour-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .tour-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    
+  }
+  
+  .tour-item .tour-info {
+    flex-grow: 1;
+    padding: 10px 15px;
+  }
+  
+  .tour-item h3 {
+    font-size: 24px;
+    font-weight: 500;
+    padding: 10px 10px;
+    color: #333;
+  }
+  
+  .tour-item label {
+    padding-left: 10px;
+    display: block;
+    color: #555;
+    font-size: 18px;
+  }
+  
+  .tour-item p {
+    color: #777;
+    padding: 10px 10px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .tour-item button {
+    background-color:black;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Push the button to the bottom */
+  }
+  
+  .tour-item button:hover {
+    background-color: rgb(81, 81, 81);
+  }
+  
+  @media (max-width: 768px) {
+    .search-bar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .search-item-location input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .tour-list {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 28px;
+    }
+  
+    .search-item button {
+      font-size: 14px;
+      padding: 10px 15px;
+    }
+  
+    .tour-item h3 {
+      font-size: 20px;
+    }
+  
+    .tour-item label {
+      font-size: 16px;
+    }
+  
+    .tour-item p {
+      font-size: 12px;
+    }
+  }
+  

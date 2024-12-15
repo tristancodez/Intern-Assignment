@@ -1,57 +1,161 @@
-
-
-.booking{
-    padding-top: 100px;
-    padding-bottom: 100px;
-    
-}
-
-.booking-container .booking-container-block{
-    margin-inline: 100px;
-}
-
-.booking-container{
-    padding-top: 100px;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-}
-.booking-container img{
+/* Booking Page Container */
+.booking {
+    max-width: 100%;
+    margin: 40px auto;
+    padding: 80px;
     border-radius: 20px;
-    margin-top: 10px;
-}
-
-.booking-container form{
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Booking Header */
+  h2 {
     text-align: center;
+    font-size: 32px;
+    font-weight: 600;
     color: white;
-    gap : 10px;
-}
-
-
-
-.booking-container form label{
-    margin-right: 10px;
-}
-
-.booking-container form input{
-    justify-content: center;
-    align-items: center;
-    padding: 10px 10px;
-    border-radius: 15px;
-    outline: none;
-    border:none;
-}
-
-.booking-container form button{
-    padding: 10px 10px;
-    border-radius: 15px;
-    background: black;
+    margin-bottom: 30px;
+  }
+  
+  /* Booking Container */
+  .booking-container {
+    display: flex;
+    margin-top: 100px;
+    gap: 20px;
+    align-items: center; /* Align the items to the top */
+    flex-wrap: wrap; /* Ensure responsiveness */
+  }
+  
+  /* Booking Image Block */
+  .booking-container-block img {
+    width: 600px; /* Fixed width for image */
+    height: 400px; /* Fixed height for image */
+    border-radius: 10px;
+    object-fit: cover; /* Ensure the image covers the area */
+  }
+  
+  /* Form Section */
+  .booking-container-block form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for inputs */
+    gap: 20px;
+    width: 100%;
+    max-width: 800px; /* Limit the width of the form */
+  }
+  
+  /* Form Item */
+  .form-item {
+    display: flex;
+    flex-direction: column; /* Arrange label and input vertically */
+    gap: 5px; /* Add space between label and input */
+  }
+  
+  .form-item label {
+    font-size: 16px;
+    font-weight: 500;
     color: white;
+  }
+  
+  .form-item input {
+    padding: 12px;
+    font-size: 16px;
+    width: 300px;
+    border-radius: 10px;
     outline: none;
+    border: 1px solid #ccc; /* Add border */
+    transition: border 0.3s ease;
+  }
+  
+  /* Input focus effect */
+  .form-item input:focus {
+    border: 1px solid #007BFF;
+  }
+  
+  /* Submit Button */
+  .form-item button {
+    background-color: #007BFF;
+    color: white;
+    padding: 14px;
+    font-size: 16px;
     border: none;
-}
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    grid-column: span 2; /* Make the button span across both columns */
+    margin-top: 20px;
+  }
+  
+  .form-item button:hover {
+    background-color: #206fc4;
+  }
+  
+  .error {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Confirmation Message */
+  .confirmation-message {
+    text-align: center;
+    background-color: #d4edda;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+  }
+  
+  .confirmation-message h3 {
+    font-size: 24px;
+    color: #155724;
+  }
+  
+  .confirmation-message p {
+    font-size: 16px;
+    color: #2e3d48;
+  }
+  
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .booking-container {
+      flex-direction: column;
+    }
+  
+    .booking-container-block {
+      width: 100%;
+    }
+  
+    .booking-container-block form {
+      width: 100%;
+    }
+  
+    h2 {
+      font-size: 28px;
+    }
+  
+    .form-item button {
+      padding: 12px;
+      font-size: 14px;
+    }
+  
+    /* Adjust image size on mobile */
+    .booking-container-block img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .booking-container-block img {
+      width: 100%;
+      height: 250px;
+    }
+  
+    h2 {
+      font-size: 24px;
+    }
+  
+    .form-item button {
+      font-size: 14px;
+    }
+  }
+  
