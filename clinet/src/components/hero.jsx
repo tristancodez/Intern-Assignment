@@ -11,10 +11,7 @@ export default function Hero() {
           <h1>
             Explore with us
           </h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis ducimus iure quia est minima accusamus, quo tenetur voluptatem sequi ad laboriosam numquam delectus quis eum quas aperiam atque illo mollitia.
-          </p>
-        
+          <p>"Explore the World with Us: Embark on unforgettable journeys to stunning destinations, where every moment is crafted for adventure, relaxation, and discovery. Whether you seek thrilling experiences, cultural immersions, or peaceful retreats, our tailor-made tours promise memories that last a lifetime."</p>
           </div>
         </div>
         

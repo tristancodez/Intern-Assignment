@@ -27,6 +27,8 @@
   .hero-section .text p{
     padding: 15px 0;
     font-size: 15px;
+    font-style: italic;
+    text-align: center;
     color: rgb(204, 204, 204);
   } 
   
