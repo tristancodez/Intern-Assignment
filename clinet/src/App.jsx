@@ -10,6 +10,8 @@ import Admin from './pages/admin';
 import About from './pages/about';
 import ContactUs from './pages/contact';
 import Footer from './components/footer';
+import PackageManager from './pages/manage_packages';
+import BookingManager from './pages/view_booking';
 
 function App() {
   
@@ -19,6 +21,8 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<><Hero/><ToursList/></>} />
+        <Route path = '/admin-packages' element={<PackageManager/>}/>
+        <Route path='/admin-bookings' element={<BookingManager/>}/>
         <Route path = '/admin' element={<Admin/>}/>
         <Route path='/booking' element={<BookingPage/>}/>
         <Route path = '/invoice' element={<Invoice/>}/>
