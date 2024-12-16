@@ -1,20 +1,21 @@
 /* Container styling */
-.content-container {
+.admin-content-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     font-family: 'Roboto', sans-serif;
+    padding-top: 150px;
   }
   
   /* Search bar styling */
-  .content-container .form-container {
+  .admin-content-container .form-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
   }
   
-  .content-container .search-bar {
+  .admin-content-container .search-bar {
     display: flex;
     align-items: center;
     max-width: 600px;
@@ -26,7 +27,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-  .content-container .search-item-location input {
+  .admin-content-container .search-item-location input {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -35,12 +36,12 @@
     margin-right: 10px;
   }
   
-  .content-container .search-item-location input:focus {
+ .admin-content-container .search-item-location input:focus {
     outline: none;
     border: 2px solid #007BFF;
   }
   
-  .content-container .search-item button {
+  .admin-content-container .search-item button {
     background-color: #007BFF;
     color: white;
     font-size: 16px;
@@ -52,37 +53,37 @@
     transition: background-color 0.3s ease;
   }
   
-  .content-container .search-item button:hover {
+  .admin-content-container .search-item button:hover {
     background-color: #0056b3;
   }
   
-  .content-container .search-item #clear-btn {
+  .admin-content-container .search-item #clear-btn {
     background-color: #f44336;
     color: white;
   }
   
-  .content-container .search-item #clear-btn:hover {
+  .admin-content-container .search-item #clear-btn:hover {
     background-color: #d32f2f;
   }
   
   /* Title styling */
-  .content-container  h2 {
+  .admin-content-container  h2 {
     text-align: center;
     font-size: 32px;
     font-weight: 600;
-    color: white;
+    color:white;
     margin-bottom: 40px;
   }
   
   /* Tour list styling */
-  .content-container .tour-list {
+  .admin-content-container .tour-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
     padding: 0 20px;
   }
   
-  .content-container .tour-item {
+  .admin-content-container .tour-item {
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
@@ -94,44 +95,44 @@
     
   }
   
-  .content-container  .tour-item:hover {
+  .admin-content-container .tour-item:hover {
     transform: translateY(-10px);
   }
   
-  .content-container .tour-item img {
+  .admin-content-container .tour-item img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     
   }
   
-  .content-container .tour-item .tour-info {
+  .admin-content-container .tour-item .tour-info {
     flex-grow: 1;
     padding: 10px 15px;
   }
   
-  .content-container  .tour-item h3 {
+  .admin-content-container .tour-item h3 {
     font-size: 24px;
     font-weight: 500;
     padding: 10px 10px;
     color: #333;
   }
   
-  .content-container  .tour-item label {
+ .admin-content-container .tour-item label {
     padding-left: 10px;
     display: block;
     color: #555;
     font-size: 18px;
   }
   
-  .content-container .tour-item p {
+ .admin-content-container .tour-item p {
     color: #777;
     padding: 10px 10px;
     font-size: 14px;
     line-height: 1.6;
   }
   
-  .content-container .tour-item button {
+  .admin-content-container .tour-item button {
     background-color:black;
     color: white;
     border: none;
@@ -144,7 +145,7 @@
     margin-top: auto; /* Push the button to the bottom */
   }
   
-  .content-container .tour-item button:hover {
+  .admin-content-container .tour-item button:hover {
     background-color: rgb(81, 81, 81);
   }
   

@@ -1,0 +1,73 @@
+.about-page {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background: black;
+    color: white;
+    padding-bottom: 100px;
+  }
+  
+  .about-header {
+    text-align: center;
+    color: white;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+  }
+  
+  .about-header h1 {
+    font-size: 3rem;
+  }
+  
+  .about-header p {
+    font-size: 1.25rem;
+  }
+  
+  .about-section {
+    margin-top: 30px;
+  }
+  
+  .about-section h2 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .about-section p, .about-section ul {
+    font-size: 1.1rem;
+  }
+  
+  .about-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .about-section ul li {
+    margin-bottom: 10px;
+  }
+  
+  .explore-button {
+    background-color: #007BFF;
+    margin-top: 30px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .explore-button a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.25rem;
+  }
+  
+  .explore-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .about-footer {
+    text-align: center;
+    margin-top: 50px;
+  }
+  

@@ -1,0 +1,50 @@
+
+.contact-page {
+    font-family: 'Arial', sans-serif;
+    padding: 40px 20px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 150px;
+    padding-bottom: 100px;
+  }
+  
+  .contact-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .contact-header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  
+  .contact-header p {
+    font-size: 1rem;
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .contact-details {
+    text-align: center;
+
+    margin: 10px 0;
+    margin-bottom: 40px;
+  }
+  
+  .contact-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .details p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  
+  

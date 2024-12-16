@@ -5,6 +5,7 @@
   width:100%;
   background: rgb(19, 56, 130);
   z-index: 99;
+  border-bottom:0.5px solid rgb(82, 82, 82) ;
 }
 
 .nav-container {
