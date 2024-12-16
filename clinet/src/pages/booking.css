@@ -97,11 +97,12 @@
   
   /* Confirmation Message */
   .confirmation-message {
+
     text-align: center;
     background-color: #d4edda;
-    padding: 20px;
+    padding: 100px;
     border-radius: 10px;
-    margin-top: 30px;
+    margin-top: 10px;
   }
   
   .confirmation-message h3 {
@@ -112,6 +113,15 @@
   .confirmation-message p {
     font-size: 16px;
     color: #2e3d48;
+  }
+
+  .confirmation-message button{
+    border-radius: 15px;
+    padding: 10px 10px;
+    margin-top: 20px;
+    background: rgb(24, 179, 1);
+    border: none;
+    color: white;
   }
   
   /* Mobile Responsive Styles */

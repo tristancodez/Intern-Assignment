@@ -5,6 +5,7 @@ import Navbar from './components/navbar';
 import { Route,Routes } from 'react-router-dom';
 import Login from './pages/login';
 import BookingPage from './pages/booking';
+import Invoice from './pages/invoice';
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<><Hero/><ToursList/></>} />
         <Route path = '/admin' element={<Login/>}/>
         <Route path='/booking' element={<BookingPage/>}/>
+        <Route path = '/invoice' element={<Invoice/>}/>
       </Routes>
       
       

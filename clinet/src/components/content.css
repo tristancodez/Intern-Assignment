@@ -17,16 +17,17 @@
   .search-bar {
     display: flex;
     align-items: center;
-    width: 100%;
     max-width: 600px;
     background-color: #f8f8f8;
+    position: relative;
+    left: 25%;
     border-radius: 30px;
     padding: 10px 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .search-item-location input {
-    width: 80%;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     border: none;
@@ -45,6 +46,7 @@
     font-size: 16px;
     padding: 12px 20px;
     border: none;
+    margin-left: 10px;
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;

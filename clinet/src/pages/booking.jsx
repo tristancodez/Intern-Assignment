@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
 import "react-datepicker/dist/react-datepicker.css";
 import './booking.css';
 
+
+
+
 const BookingPage = () => {
+
   const location = useLocation();
   const [userDetails, setUserDetails] = useState({
     name: '',
@@ -14,13 +18,18 @@ const BookingPage = () => {
     contact: '',
     travelers: 1,
     special_req: '',
-    start_date: '', // Initially empty string
-    end_date: '',   // Initially empty string
+    start_date: '', 
+    end_date: '',
   });
   const [isBooking, setIsBooking] = useState(false);
   const [bookingError, setBookingError] = useState('');
+  const [invoice, setInvoice] = useState(null);
+  const navigate = useNavigate();
 
   const tour = location.state?.tour || {};
+
+  const pricePerTraveler = tour?.price; // Example price per traveler, this can be fetched dynamically
+  const gstRate = 0.18;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,18 +38,63 @@ const BookingPage = () => {
       [name]: value
     });
   };
+  const calculateTotalAmount = () => {
+    const startDate = new Date(userDetails.start_date);
+    const endDate = new Date(userDetails.end_date);
+    const timeDifference = endDate - startDate; // difference in milliseconds
+    const numberOfDays = timeDifference / (1000 * 3600 * 24); // convert milliseconds to days
+    
+    const totalPrice = pricePerTraveler * userDetails.travelers * numberOfDays;
+    const gst = totalPrice * gstRate;
+    const cgst = gst / 2;
+    const sgst = cgst;
+    const grandTotal = totalPrice+gst;
+
+    return { totalPrice, gst, cgst, sgst, numberOfDays, grandTotal };
+  };
+
+  
+  
 
   const handleBookingSubmit = async (event) => {
     event.preventDefault();
     setBookingError('');
 
-    console.log(userDetails);
+    const { totalPrice, gst, cgst, sgst, numberOfDays, grandTotal } = calculateTotalAmount();
+
+    const newInvoice = {
+        invoiceId: Math.floor(Math.random() * 100000), // Example invoice ID
+        name: userDetails.name,
+        age: userDetails.age,
+        email: userDetails.email,
+        contact: userDetails.contact,
+        travelers: userDetails.travelers,
+        start_date: userDetails.start_date,
+        end_date: userDetails.end_date,
+        special_req: userDetails.special_req,
+        totalPrice,
+        gst,
+        cgst,
+        sgst,
+        numberOfDays,
+        grandTotal,
+      };
+    
+      setInvoice(newInvoice);
 
     try {
       const response = await axios.post('http://localhost:3001/api/bookings/add-booking', userDetails);
 
       alert(`Booking confirmed! Your invoice ID is: ${response.data.invoiceId}`);
       setIsBooking(true);
+
+      // Generate invoice content
+      setInvoice({
+        ...userDetails,
+        invoiceId: response.data.invoiceId,
+      });
+      navigate('/invoice',{state: {invoice:newInvoice,tour:tour}});
+
     } catch (error) {
       console.error('Error creating booking:', error);
       setBookingError('Something went wrong, please try again.');
@@ -57,7 +111,7 @@ const BookingPage = () => {
         </div>
 
         <div className='booking-container-block'>
-          <form onSubmit={handleBookingSubmit} className='booking-form'>
+        <form onSubmit={handleBookingSubmit} className='booking-form'>
             <div className='form-item'>
               <label>Name:</label>
               <input 
@@ -150,12 +204,7 @@ const BookingPage = () => {
           </form>
         </div>
 
-        {isBooking && (
-          <div className='confirmation-message'>
-            <h3>Your booking was successful!</h3>
-            <p>Thank you for your booking. We will send you an invoice shortly.</p>
-          </div>
-        )}
+        
       </div>
     </section>
   );
