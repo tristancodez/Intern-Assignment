@@ -9,7 +9,10 @@ const BookingSchema = new mongoose.Schema({
   travelers : {type:Number,required:true},
   special_req : {type:String},
   start_date : {type:Date,required:true},
-  end_date : {type:Date,required:true}
+  end_date : {type:Date,required:true},
+  tour_title : {type:String,required : true},
+  tour_location : {type:String,required : true}
+
 
 });
 

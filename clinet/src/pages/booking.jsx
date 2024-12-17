@@ -5,9 +5,6 @@ import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
 import './booking.css';
 
-
-
-
 const BookingPage = () => {
 
   const location = useLocation();
@@ -23,13 +20,9 @@ const BookingPage = () => {
   });
   const [isBooking, setIsBooking] = useState(false);
   const [bookingError, setBookingError] = useState('');
-  const [invoice, setInvoice] = useState(null);
   const navigate = useNavigate();
 
   const tour = location.state?.tour || {};
-
-  const pricePerTraveler = tour?.price; // Example price per traveler, this can be fetched dynamically
-  const gstRate = 0.18;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -38,62 +31,33 @@ const BookingPage = () => {
       [name]: value
     });
   };
-  const calculateTotalAmount = () => {
-    const startDate = new Date(userDetails.start_date);
-    const endDate = new Date(userDetails.end_date);
-    const timeDifference = endDate - startDate; // difference in milliseconds
-    const numberOfDays = timeDifference / (1000 * 3600 * 24); // convert milliseconds to days
-    
-    const totalPrice = pricePerTraveler * userDetails.travelers * numberOfDays;
-    const gst = totalPrice * gstRate;
-    const cgst = gst / 2;
-    const sgst = cgst;
-    const grandTotal = totalPrice+gst;
-
-    return { totalPrice, gst, cgst, sgst, numberOfDays, grandTotal };
-  };
-
-  
-  
 
   const handleBookingSubmit = async (event) => {
     event.preventDefault();
     setBookingError('');
 
-    const { totalPrice, gst, cgst, sgst, numberOfDays, grandTotal } = calculateTotalAmount();
-
-    const newInvoice = {
-        invoiceId: Math.floor(Math.random() * 100000), // Example invoice ID
-        name: userDetails.name,
-        age: userDetails.age,
-        email: userDetails.email,
-        contact: userDetails.contact,
-        travelers: userDetails.travelers,
-        start_date: userDetails.start_date,
-        end_date: userDetails.end_date,
-        special_req: userDetails.special_req,
-        totalPrice,
-        gst,
-        cgst,
-        sgst,
-        numberOfDays,
-        grandTotal,
-      };
-    
-      setInvoice(newInvoice);
+    const { name, age, email, contact, travelers, special_req, start_date, end_date } = userDetails;
+    const newBookingData = {
+      name,
+      age,
+      email,
+      contact,
+      travelers,
+      special_req,
+      start_date,
+      end_date,
+      tour_title: tour?.title || 'No Title',
+      tour_location: tour?.location || 'No Location',
+    };
 
     try {
-      const response = await axios.post('http://localhost:3001/api/bookings/add-booking', userDetails);
+      const response = await axios.post('http://localhost:3001/api/bookings/add-booking', newBookingData);
 
-      alert(`Booking confirmed! Your invoice ID is: ${response.data.invoiceId}`);
+      alert(`Booking confirmed! Your booking ID is: ${response.data._id}`); // Assuming the backend sends back the saved booking with an _id
       setIsBooking(true);
 
-      // Generate invoice content
-      setInvoice({
-        ...userDetails,
-        invoiceId: response.data.invoiceId,
-      });
-      navigate('/invoice',{state: {invoice:newInvoice,tour:tour}});
+      
+      navigate('/invoice', { state: { booking: response.data, tour: tour } });
 
     } catch (error) {
       console.error('Error creating booking:', error);
@@ -111,7 +75,7 @@ const BookingPage = () => {
         </div>
 
         <div className='booking-container-block'>
-        <form onSubmit={handleBookingSubmit} className='booking-form'>
+          <form onSubmit={handleBookingSubmit} className='booking-form'>
             <div className='form-item'>
               <label>Name:</label>
               <input 
@@ -183,7 +147,7 @@ const BookingPage = () => {
                 type='date'
                 name='start_date'
                 value={userDetails.start_date}
-                onChange={handleInputChange}  // Handles date change correctly
+                onChange={handleInputChange}  
                 required 
               />
             </div>
@@ -193,7 +157,7 @@ const BookingPage = () => {
                 type='date' 
                 name='end_date'
                 value={userDetails.end_date}
-                onChange={handleInputChange}  // Handles date change correctly
+                onChange={handleInputChange}  
                 required 
               />
             </div>
@@ -203,8 +167,6 @@ const BookingPage = () => {
             </div>
           </form>
         </div>
-
-        
       </div>
     </section>
   );

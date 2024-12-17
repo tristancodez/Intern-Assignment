@@ -16,7 +16,7 @@ const Navbar = () => {
         <li><Link to="/about">About Us</Link></li>
         <li><Link to="/contact">Contact Us</Link></li>
       </ul>
-      <button type="button" onClick={()=>navigate('/admin')} className="login-button">Admin</button>
+      <button type="button" onClick={()=>navigate('/login')} className="login-button">Admin</button>
       <button type="button" className="get-started-button">Get Started</button>
     </nav>
     </div>

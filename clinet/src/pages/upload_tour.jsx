@@ -1,5 +1,6 @@
 import './upload_tour.css';
 import { useState } from 'react';
+import axios from 'axios';
 
 export default function UploadForm() {
   const [location, setLocation] = useState('');
@@ -9,7 +10,7 @@ export default function UploadForm() {
   const [price, setPrice] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
     // Validate input fields (optional)
     if (!location || !title || !description || !image || !price) {
@@ -23,23 +24,18 @@ export default function UploadForm() {
       title,
       description,
       image,
-      price: parseFloat(price), // Ensure price is sent as a number
+      price: parseFloat(price),
     };
 
     try {
-      // POST request to add-tour endpoint
-      const response = await fetch('http://localhost:3001/api/tours/add-tour', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(tourData),
-      });
+      // Sending POST request with tour data
+      const response = await axios.post('http://localhost:3001/api/tours/add-tour', tourData);
 
-      // Handle response
-      if (response.ok) {
+      // Check for successful response status
+      if (response.status === 201) {
         alert('Tour added successfully!');
-        // Clear form after successful submission
+        
+        // Reset form fields after successful submission
         setLocation('');
         setTitle('');
         setDescription('');
@@ -55,7 +51,9 @@ export default function UploadForm() {
   };
 
   return (
+    
     <div className="upload-container">
+      <h1>Create New Tour Package</h1>
       <form className="upload-form" onSubmit={handleSubmit}>
         <label>Location: </label>
         <input

@@ -12,17 +12,12 @@ export default function Admin(){
     return(
         <div className='dashboard-container'>
             <h1>Dashboard</h1>
-            <div className='dashboard-tile'>
-                <h3>View Bookings</h3>
-                <p1>Total Bookings : 17</p1>
+            <div className='dashboard-tile'>     
                 <button onClick={handleBookings}>View Bookings</button>
             </div>
-            <div className='dashboard-tile'>
-                <h3>Manage Packages</h3>
-                <p>Available Packages : 15</p>
+            <div className='dashboard-tile'>                
                 <button onClick={handlePackages}>Manage Packages</button>
             </div>
-            
         </div>
         
     )

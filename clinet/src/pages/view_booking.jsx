@@ -46,8 +46,8 @@ export default function BookingManager() {
             <p><strong>Start Date:</strong> {new Date(booking.start_date).toLocaleDateString()}</p>
             <p><strong>End Date:</strong> {new Date(booking.end_date).toLocaleDateString()}</p>
             <p><strong>Special Request:</strong> {booking.special_req || 'None'}</p>
-            <p><strong>Destination:</strong> {booking.destination || 'Not Provided'}</p>
-            <p><strong>Tour Package:</strong> {booking.tour_package || 'Not Provided'}</p>
+            <p><strong>Destination:</strong> {booking.tour_location || 'Not Provided'}</p>
+            <p><strong>Tour Package:</strong> {booking.tour_title || 'Not Provided'}</p>
             <hr />
           </div>
         ))

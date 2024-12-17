@@ -1,6 +1,7 @@
 /* General body and layout */
 .booking-manager {
     padding: 20px;
+    padding-top: 100px;
     font-family: 'Arial', sans-serif;
     background-color: #f4f7fc;
     max-width: 1200px;

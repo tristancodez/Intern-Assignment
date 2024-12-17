@@ -120,6 +120,7 @@
     background: rgb(24, 179, 1);
     border: none;
     color: white;
+    cursor: pointer;
   }
   
   /* Mobile Responsive Styles */

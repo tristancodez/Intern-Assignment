@@ -6,6 +6,22 @@
     font-family: 'Roboto', sans-serif;
     padding-top: 150px;
   }
+
+  #upload-button{
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 45%;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    padding: 20px 20px;
+    background-color: #45c724;
+    color: white;
+    font-weight: 700;
+  }
   
   /* Search bar styling */
   .admin-content-container .form-container {
@@ -13,6 +29,8 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
+    padding-top: 30px;
+    padding-bottom: 40px;
   }
   
   .admin-content-container .search-bar {
@@ -131,8 +149,13 @@
     font-size: 14px;
     line-height: 1.6;
   }
+
+  .admin-content-container .tour-item .buttonClass {
+    
+    margin-top: auto; /* Push the button to the bottom */
+  }
   
-  .admin-content-container .tour-item button {
+  .admin-content-container .tour-item .edit-button button {
     background-color:black;
     color: white;
     border: none;
@@ -144,9 +167,26 @@
     transition: background-color 0.3s ease;
     margin-top: auto; /* Push the button to the bottom */
   }
+
+  .admin-content-container .tour-item .delete-button button {
+    background-color:red;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Push the button to the bottom */
+  }
   
-  .admin-content-container .tour-item button:hover {
+  .admin-content-container .tour-item .edit-button button:hover {
     background-color: rgb(81, 81, 81);
+  }
+
+  .admin-content-container .tour-item .delete-button button:hover {
+    background-color: rgb(177, 0, 0);
   }
   
   @media (max-width: 768px) {

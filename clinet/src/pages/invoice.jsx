@@ -7,12 +7,11 @@ import './booking.css';
 
 const Invoice = () => {
 
-    // Retrieve data passed via location state
     const location = useLocation();
-    const invoice = location.state?.invoice;
+    const invoice = location.state?.booking;
     const tour = location.state?.tour;
 
-    console.log("Invoice Data:", invoice);  // Debugging: Log the invoice data
+    console.log("Invoice Data:", invoice);
     console.log("Tour Data:", tour)
 
     if (!invoice || !tour) {
@@ -79,7 +78,6 @@ const Invoice = () => {
             <p>Thank you for your booking. We will send you an invoice shortly.</p>
             <div className='invoice'>
                 <h4>Invoice Details</h4>
-                <p><strong>Invoice ID:</strong> {invoice?.invoiceId}</p>
                 <p><strong>Name:</strong> {invoice?.name}</p>
                 <p><strong>Age:</strong> {invoice?.age}</p>
                 <p><strong>Location:</strong> {tour?.location}</p>
@@ -93,17 +91,7 @@ const Invoice = () => {
 
                 {/* Tax and Pricing Details */}
                 <p><strong>Price per Traveler:</strong> ${pricePerTraveler}</p>
-                <p><strong>Number of Days:</strong> {invoice?.numberOfDays}</p>
-                <p><strong>Total Price:</strong> ${invoice?.totalPrice?.toFixed(2)}</p>
-
-                {/* GST, CGST, and SGST */}
-                <p><strong>GST (18%):</strong> ${invoice?.gst?.toFixed(2)}</p>
-                <p><strong>CGST:</strong> ${invoice?.cgst?.toFixed(2)}</p>
-                <p><strong>SGST:</strong> ${invoice?.sgst?.toFixed(2)}</p>
-                
-                {/* Grand Total */}
-                <p><strong>Grand Total:</strong> ${invoice?.grandTotal?.toFixed(2)}</p>
-
+           
                 {/* Button to Download PDF */}
                 <button onClick={generatePDF}>Download Invoice as PDF</button>
             </div>

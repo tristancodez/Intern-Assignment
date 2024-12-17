@@ -7,7 +7,7 @@ const booking_router = express.Router();
 
 booking_router.post('/add-booking', async (req, res) => {
   try {
-    const { name, age, email, contact, travelers, special_req ,start_date, end_date} = req.body;
+    const { name, age, email, contact, travelers, special_req ,start_date, end_date, tour_title, tour_location} = req.body;
 
     const newBooking = new Booking({
       name,
@@ -17,7 +17,9 @@ booking_router.post('/add-booking', async (req, res) => {
       travelers,
       special_req,
       start_date,
-      end_date
+      end_date,
+      tour_title,
+      tour_location,
     });
 
     const savedBooking = await newBooking.save();

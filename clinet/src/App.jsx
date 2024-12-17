@@ -12,6 +12,8 @@ import ContactUs from './pages/contact';
 import Footer from './components/footer';
 import PackageManager from './pages/manage_packages';
 import BookingManager from './pages/view_booking';
+import Login from './pages/login';
+import UploadForm from './pages/upload_tour';
 
 function App() {
   
@@ -23,7 +25,9 @@ function App() {
         <Route path='/' element={<><Hero/><ToursList/></>} />
         <Route path = '/admin-packages' element={<PackageManager/>}/>
         <Route path='/admin-bookings' element={<BookingManager/>}/>
-        <Route path = '/admin' element={<Admin/>}/>
+        <Route path='/add-package' element={<UploadForm/>}  />
+        <Route path = '/login' element={<Login/>}/>
+        <Route path = '/admin' element={<Admin/>}/> 
         <Route path='/booking' element={<BookingPage/>}/>
         <Route path = '/invoice' element={<Invoice/>}/>
         <Route path='/about' element={<About/>}/>
