@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './manage_packages.css'
 import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+
 
 
 const PackageManager = () => {
@@ -12,7 +12,7 @@ const PackageManager = () => {
   const navigate = useNavigate();
 
 
-  const tourId = location.state?.tour?._id;
+  
  
   useEffect(() => {
     const fetchTours = async () => {

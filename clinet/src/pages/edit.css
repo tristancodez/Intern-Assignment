@@ -1,0 +1,94 @@
+/* Container for the whole edit page */
+.edit-package-container {
+    width: 60%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading style */
+  .edit-package-container .edit-package-container h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Form wrapper */
+  .edit-package-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Label style */
+  .edit-package-container label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  
+  /* Input and Textarea style */
+  .edit-package-container input,
+  textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .edit-package-container input:focus,
+  textarea:focus {
+    border-color: #007bff;
+  }
+  
+  /* Textarea specific styles */
+  .edit-package-container textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  /* Button style */
+  .edit-package-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+    align-self: center;
+  }
+  
+  .edit-package-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Small responsive styling */
+  @media (max-width: 768px) {
+    .edit-package-container {
+      width: 90%;
+      margin: 20px auto;
+    }
+  
+    .edit-package-container h1 {
+      font-size: 1.8rem;
+    }
+  
+    form {
+      gap: 15px;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
+  
+  
