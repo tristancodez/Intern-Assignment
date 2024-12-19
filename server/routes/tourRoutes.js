@@ -61,10 +61,10 @@ router.delete('/delete-tour', async (req, res) => {
 });
 
 router.delete('/delete-tour', async (req, res) => {
-  const { tour_id } = req.query; // Get the tour_id from the query parameters
+  const { tour_id } = req.query;
 
   try {
-    // Find the tour and delete it by its _id
+
     const deletedTour = await Tour.findByIdAndDelete(tour_id);
 
     if (!deletedTour) {
@@ -78,6 +78,17 @@ router.delete('/delete-tour', async (req, res) => {
   
 });
 
+router.get('/get-tour/:tourId',async (req,res)=>{
+  const {tourId} = req.params;
+    try{
+      const tour = await Tour.findById(tourId);
+      res.status(200).json(tour);
+    }
+    catch(err){
+      res.status(500).json({message: 'Error',details:err})
+    }
+});
+
 
 router.put('/update-tour/:tourId', async (req, res) => {
   const { tourId } = req.params;
@@ -87,14 +98,14 @@ router.put('/update-tour/:tourId', async (req, res) => {
     const updatedTour = await Tour.findByIdAndUpdate(
       tourId,
       { title, location, description, price, image },
-      { new: true } // This returns the updated document
+      { new: true }
     );
 
     if (!updatedTour) {
       return res.status(404).json({ message: 'Tour not found' });
     }
 
-    res.status(200).json(updatedTour); // Send the updated tour back in the response
+    res.status(200).json(updatedTour);
   } catch (error) {
     res.status(500).json({ message: 'Error updating tour', error: error.message });
   }

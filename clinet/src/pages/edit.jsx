@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './edit.css'; // You can style this component with your own CSS
 
-const EditPackage = () => {
+export default function EditPackage() {
   const [tour, setTour] = useState({
     title: '',
     description: '',
@@ -11,22 +11,20 @@ const EditPackage = () => {
     price: '',
     image: '',
   });
-  const [loading, setLoading] = useState(true);
+  
   const navigate = useNavigate();
-  const location = useLocation(); // This will help us get the state passed from the PackageManager
+  const location = useLocation();
 
   const tourId = location.state?.edit_package;
-  console.log(tourId); // Get the tour ID passed through state
-
+  console.log(tourId);
   useEffect(() => {
     const fetchTourDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/tours/${tourId}`);
-        setTour(response.data); // Set the fetched tour data to state
-        setLoading(false);
+        const response = await axios.get(`http://localhost:3001/api/tours/get-tour/${tourId}`);
+        setTour(response.data);
       } catch (error) {
         console.error('Error fetching tour details:', error);
-        setLoading(false);
+      
       }
     };
 
@@ -52,17 +50,13 @@ const EditPackage = () => {
       );
       if (response.status === 200) {
         alert('Tour updated successfully!');
-        navigate('/admin'); // Redirect to the admin page after successful update
+        navigate('/admin-packages');
       }
     } catch (error) {
       console.error('Error updating the tour:', error);
       alert('Failed to update the tour.');
     }
   };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="edit-package-container">
@@ -133,4 +127,3 @@ const EditPackage = () => {
   );
 };
 
-export default EditPackage;

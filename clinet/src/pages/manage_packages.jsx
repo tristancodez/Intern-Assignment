@@ -47,10 +47,9 @@ const PackageManager = () => {
     navigate('/add-package');
   }
 
-  const handleEdit = (e) =>{
-    const req_package = location.state?.tour; 
-    e.preventDefault();
-    navigate('/edit-package',{state:{edit_package: req_package?.id}});
+  const handleEdit = (tourId) =>{
+    console.log(tourId)
+    navigate('/edit-package',{state:{edit_package: tourId}});
   }
 
   const handleDelete = async (tourId) => {
@@ -115,7 +114,7 @@ const PackageManager = () => {
               <p>{tour.description}</p>
               <div className='buttonClass'>
               <div className='edit-button'>
-              <button type='button' onClick={handleEdit}>Edit</button>
+              <button type='button' onClick={()=>handleEdit(tour._id)}>Edit</button>
               </div>
               <div className='delete-button'>
               <button type='delete' onClick={() => handleDelete(tour._id)}>Delete</button>
