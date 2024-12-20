@@ -59,6 +59,7 @@ export default function EditPackage() {
   };
 
   return (
+    <section className='edit-section'>
     <div className="edit-package-container">
       <h1>Edit Tour Package</h1>
       <form onSubmit={handleSubmit}>
@@ -124,6 +125,7 @@ export default function EditPackage() {
         <button type="submit">Update Tour</button>
       </form>
     </div>
+    </section>
   );
 };
 

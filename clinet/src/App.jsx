@@ -42,4 +42,6 @@ function App() {
   )
 }
 
+// mongodb+srv://admin:admin123@cluster0.cr9di.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
 export default App
